@@ -1,20 +1,18 @@
 import React,{ useContext, useMemo } from 'react'
-import { ShopifyContext } from '../../context/shopify-context'
-import { useFindAnimalCollection} from '../../utils/hooks'
+import { ShopifyContext } from '../../../context/shopify-context'
+import { useFindAnimalCollection} from '../../../utils/hooks'
 import { Flex, Grid, Heading } from '@chakra-ui/react'
-import { AnimalListItem } from '../../components/AnimalListItem'
-import AnimalList from '../../components/AnimalList'
-import SiteLayout from '../../components/SiteLayout'
+import { AnimalListItem } from '../../../components/AnimalListItem'
+import AnimalList from '../../../components/AnimalList'
+import SiteLayout from '../../../components/SiteLayout'
 
 type Props = {}
 
 const BallPython = ({location}) => {
-  
   const collections = useContext(ShopifyContext)    
   const cachedValue = useMemo(() => collections, [])
-  const animalName = location.state.name ?? cachedValue
+  const animalName = location.state.name ?? location.state.label ??  cachedValue
   const products = useFindAnimalCollection(collections,animalName)
-
 
   return (        
   <SiteLayout>

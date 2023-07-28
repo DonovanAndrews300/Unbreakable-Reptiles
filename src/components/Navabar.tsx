@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link as GatsbyLink} from 'gatsby'
 import {
     Box,
     Flex,
@@ -129,20 +130,22 @@ import {
     );
   };
   
-  const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
+  const DesktopSubNav = ({ label, href, subLabel, children }: NavItem) => {
     return (
-      <Link
-        href={href}
+      <Popover trigger='hover'>
+       <PopoverTrigger>
+       <GatsbyLink
+        to={href}
         role={'group'}
+        state={{label}}
         display={'block'}
         p={2}
         rounded={'md'}
-        _hover={{ bg: useColorModeValue('pink.50', 'gray.900') }}>
+        _hover={{ bg: useColorModeValue('pink.50', 'gray.900') }}> 
         <Stack direction={'row'} align={'center'}>
           <Box>
             <Text
               transition={'all .3s ease'}
-              color='white'
               _groupHover={{ color: 'pink.400' }}
               fontWeight={500}>
               {label}
@@ -159,8 +162,28 @@ import {
             flex={1}>
             <Icon color={'pink.400'} w={5} h={5} as={ChevronRightIcon} />
           </Flex>
-        </Stack>
-      </Link>
+        </Stack> </GatsbyLink> 
+          </PopoverTrigger>
+          {children && (
+              <PopoverContent
+                  border={0}
+                  boxShadow={'xl'}
+                  p={4}
+                  rounded={'xl'}
+                  w={'sm'}>
+                  <Stack direction={'row'} align={'center'}>
+                    {children.map((child) => (
+                      <>
+                      <DesktopSubNav key={child.label} {...child} />
+                      </>
+                      
+                    ))}
+                    </Stack>
+       </PopoverContent>
+       )}
+  
+      </Popover>
+
     );
   };
   
@@ -240,8 +263,27 @@ import {
             href: '/',
     },
     {
-      label: 'Animals',
-      href: '/animals',
+      label: 'Shop',
+      href: '/products',
+      children: [
+        {
+          label: 'Animals',
+          href: 'products/animals',
+          children: [
+            {
+              label: 'Ball Pythons',
+              href: 'products/animals/ball-pythons',
+            },
+
+          ],
+        },
+        {
+          label: 'Merch',
+          subLabel: 'Up-and-coming Designers',
+          href: '#',
+        },
+      ],
+  
     },
     {
       label: 'Contact',

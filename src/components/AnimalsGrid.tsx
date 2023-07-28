@@ -12,7 +12,7 @@ export const AnimalsGrid = () => {
 const animals : Animal[] = [ 
          {
             name: "Ball Pythons",
-            route: "animals/ball-pythons",
+            route: "products/animals/ball-pythons",
             image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNRSa77mocRsfdXOc8PLXFKaxqU8Oie6HFSA&usqp=CAU",
         },
         {
@@ -33,7 +33,8 @@ const animals : Animal[] = [
     {"Animals"}
     </Heading></Center> 
    <Box display={'flex'} justifyContent={'center'} >
-<SimpleGrid columns={3} h="100vh" w="100vh" spacing='40px' >
+    //break into new component
+<SimpleGrid columns={3}  spacing='40px' >
  {animals.map((animal:Animal)=> {
     const { name, route, image} = animal
        return (
