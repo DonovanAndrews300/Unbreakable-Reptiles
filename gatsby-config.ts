@@ -16,16 +16,7 @@ const config: GatsbyConfig = {
       "icon": "src/images/icon.png"
     }
   },
-  {
-    resolve: "gatsby-source-shopify",
-    options: {
-      password:process.env.GATSBY_STOREFRONT_PASSWORD,
-      shopName:"Unbreakable Reptiles",
-      shopifyConnections: ["collections"], 
-      storeUrl: "unbreakable-reptiles.myshopify.com",
-      ApiVersion:"2020-01",
-    },
-  },
+
   "gatsby-plugin-image",
   {
     resolve: '@chakra-ui/gatsby-plugin',
@@ -58,3 +49,13 @@ const config: GatsbyConfig = {
 };
 
 export default config;
+  // {
+  //   resolve: "gatsby-source-shopify",
+  //   options: {
+  //     password:process.env.GATSBY_SHOPIFY_STOREFRONT_PASSWORD,
+  //     shopName:"Unbreakable Reptiles",
+  //     shopifyConnections: ["collections"], 
+  //     storeUrl: "unbreakable-reptiles.myshopify.com",
+  //     ApiVersion:"2020-01",
+  //   },
+  // },
