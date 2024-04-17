@@ -19,7 +19,7 @@ const config: GatsbyConfig = {
   {
     resolve: "gatsby-source-shopify",
     options: {
-      password:"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",
+      password:process.env.GATSBY_STOREFRONT_PASSWORD,
       shopName:"Unbreakable Reptiles",
       shopifyConnections: ["collections"], 
       storeUrl: "unbreakable-reptiles.myshopify.com",
