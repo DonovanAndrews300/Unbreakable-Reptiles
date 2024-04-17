@@ -59,15 +59,17 @@ import {
               textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
               fontFamily={'heading'}
               px={5}
-              color='white'>
+        
+        color='white'>
               
               <TriangleUpIcon/>
             </Text>
             <Text
-
               fontFamily={'heading'}
               color={'white'}>
+              <GatsbyLink to={'/#'}>
               Unbreakable Reptiles
+              </GatsbyLink>
             </Text>
             <Spacer/>
             <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
@@ -135,7 +137,7 @@ import {
       <Popover trigger='hover'>
        <PopoverTrigger>
        <GatsbyLink
-        to={href}
+        to={`/${href}`}
         role={'group'}
         state={{label}}
         display={'block'}
@@ -272,15 +274,14 @@ import {
           children: [
             {
               label: 'Ball Pythons',
-              href: 'products/animals/ball-pythons',
+              href: '/products/animals/ball-pythons',
             },
 
           ],
         },
         {
           label: 'Merch',
-          subLabel: 'Up-and-coming Designers',
-          href: '#',
+          href: 'products/merch',
         },
       ],
   

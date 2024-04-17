@@ -1,17 +1,22 @@
-import { Flex, Grid, Heading } from '@chakra-ui/react'
+import { Box, Center, Flex, Grid, Heading, Image, SimpleGrid, Stack, Text } from '@chakra-ui/react'
+import { Link } from 'gatsby'
 import React from 'react'
-import { AnimalListItem } from './AnimalListItem'
+import { AnimalListItem } from './AnimalListItem';
 
+type ProductsProps = {
+    products:any [];
+    header:string;
+}
 
-const AnimalList = ({products}) => {
+export default function ProductList({products, header}: ProductsProps) {
   return (
-    <>
-      <Flex align="center" justifyContent={"center"} mr={5} paddingTop={"50px"}>
+    <div> 
+           <Flex align="center" justifyContent={"center"} mr={5} paddingTop={"20px"}>
         <Heading as="h1" size="lg" letterSpacing={"tighter"}>
-          {"Ball Pythons"}
+          {header}
         </Heading>
       </Flex>
-      <Flex
+    <Flex
     direction="column"
     justifyContent="center"
     maxW={{ xl: "1200px" }}
@@ -33,8 +38,6 @@ const AnimalList = ({products}) => {
         )}
       </Grid>
     </Flex>
-    </>
+    </div>
   )
 }
-
-export default AnimalList

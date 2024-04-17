@@ -5,6 +5,7 @@ import { Flex, Grid, Heading } from '@chakra-ui/react'
 import { AnimalListItem } from '../../../components/AnimalListItem'
 import AnimalList from '../../../components/AnimalList'
 import SiteLayout from '../../../components/SiteLayout'
+import ProductList from '../../../components/ProductList'
 
 type Props = {}
 
@@ -16,12 +17,7 @@ const BallPython = ({location}) => {
 
   return (        
   <SiteLayout>
-  <Flex align="center" justifyContent={"center"} mr={5} paddingTop={"50px"}>
-        <Heading as="h1" size="lg" letterSpacing={"tighter"}>
-          {"Ball Pythons"}
-        </Heading>
-      </Flex>
-     {!!products && <AnimalList products={products} />}
+     {!!products && <ProductList header='Ball Pythons' products={products} />}
 </SiteLayout>
   )
 }
