@@ -4,7 +4,7 @@ import { useToast, createStandaloneToast } from '@chakra-ui/react'
 
     const client = Client.buildClient({
     domain: 'unbreakable-reptiles.myshopify.com',
-    storefrontAccessToken: '9d99eb275041ac82d3ec9b3b75672b07',
+    storefrontAccessToken: process.env.GATSBY_STOREFRONT_TOKEN as string,
 });
 
 
